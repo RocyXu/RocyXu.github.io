@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Lens shading成因</title>
+      <link href="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/"/>
+      <url>/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>偶然看到Edmund Optics一篇关于lens shading成因的介绍，原文<a href="https://www.edmundoptics.com/knowledge-center/application-notes/imaging/sensor-relative-illumination-roll-off-and-vignetting/">Relative Illumination, Roll-Off, and Vignetting</a>，建议直接看原文，以下是个人总结。</p><h2 id="Relative-Illumination-RI"><a href="#Relative-Illumination-RI" class="headerlink" title="Relative Illumination (RI)"></a>Relative Illumination (RI)</h2><p>RI是描述暗角效应的一种方式，表示边角亮度与中心点比值，一般sensor中心点的illumibation最高，RI为100%，越往边角亮度越暗，RI越小。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/1.png" alt="RI curves"><br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/2.png" alt="Shading"></p><p>从图中可以看出：</p><ul><li>光圈越大，RI的衰减越多。RI是相对值，光圈大时绝对进光量是越大的。</li><li>sensor尺寸越大，暗角效应约明显。</li></ul><p>RI是vignetting和roll-off综合产生的结果，而两者的成因不同，以下分别介绍。</p><h2 id="Vignetting"><a href="#Vignetting" class="headerlink" title="Vignetting"></a>Vignetting</h2><p>光线不能穿过整个透镜组，在镜片边缘被截断，导致sensor边角接受到的光线较中心偏少，光圈越大，该效应约明显。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/3.png" alt="light rays are clipped"></p><h2 id="Roll-off"><a href="#Roll-off" class="headerlink" title="Roll-off"></a>Roll-off</h2><p>Roll-off产生原因为电磁辐射准则（cosine-to-the-fourth law），此处可以参考<a href="https://www.coursera.org/lecture/optical-efficiency-and-resolution/cos-4th-law-GG6kh">cos4 law</a>，也就是说主光线角度越大，sensor上pixel位置接受的能量越少。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/4.png" alt="chief ray angle"><br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/5.png" alt="RI decays with chief raw angel increases"></p><p>现在的sensor上都有微透镜使之接收更多光线，但入射角发生变化，也会引起Roll-off现象，如下图，入射角倾斜，光线经过微透镜无法全部落在sensor的感光区域。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/6.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ISP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Lens </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python中的字符与编码</title>
       <link href="/2021/07/24/python_str_encode/"/>
       <url>/2021/07/24/python_str_encode/</url>

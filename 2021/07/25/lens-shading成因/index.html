@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python中的字符与编码, Rocy的博客">
+    <meta name="keywords" content="Lens shading成因, Rocy的博客">
     <meta name="description" content="学而时习之">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python中的字符与编码 | Rocy的博客</title>
+    <title>Lens shading成因 | Rocy的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python中的字符与编码</h1>
+                    <h1 class="description center-align post-title">Lens shading成因</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/Lens/">
+                                <span class="chip bg-color">Lens</span>
                             </a>
                         
                     </div>
@@ -401,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/ISP/" class="post-category">
+                                ISP
                             </a>
                         
                     </div>
@@ -414,7 +414,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-24
+                    2021-07-25
                 </div>
                 
 
@@ -435,34 +435,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>“字符”的最佳定义是Unicode字符，Python3中str对象获得的都是Unicode字符，每一个字符都有对应的unicode码。编码是从Unicode码和字节序列之间转换时用的算法，如utf-8、gb2312等等，下面一一解释。</p>
-<h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>我们可能最早接触过的字符编码可能大学课本里的ASCII码，它是上世纪60年代美国制定的一套编码，对英文字符和二进制数定义标准，如下表所示。<br><img src="/2021/07/24/python_str_encode/ascii.jpg" alt="ASII码表"></p>
-<h2 id="Unicode码"><a href="#Unicode码" class="headerlink" title="Unicode码"></a>Unicode码</h2><p>世界上不同国画家的语言符号多种多样，使用ASCII码远远不够，于是就有了unicode，对每一个符号都赋予一个独一无二的编码。unicode码使用4-6个16进制数表示，并加前缀“U+”，例如字母A的unicode码是U+0041，汉字严的unicode码是U+4E25。查询字符的unicode码可以参考：<a target="_blank" rel="noopener" href="https://unicode.yunser.com/unicode">https://unicode.yunser.com/unicode</a></p>
-<h2 id="字符编解码"><a href="#字符编解码" class="headerlink" title="字符编解码"></a>字符编解码</h2><p>如果我们用unicode码表示字符，假设每个常用字符使用4字节码位，这就会导致有些字符实际上不需要占用4字节的空间造成存储空间的浪费，例如英文字母，因此需要字符编解码。<br>编码：unicode码转换为字节序列的过程<br>解码：字节序列转为unicode码的过程<br>编解码规则有很多，例如utf-8、GB2312、GBK、utf-16le等等，此处不深究这些编码方式的具体细节。</p>
-<h2 id="Python中的字符编码"><a href="#Python中的字符编码" class="headerlink" title="Python中的字符编码"></a>Python中的字符编码</h2><p>python3的解释器默认使用utf-8编码，所以写代码时，编辑器也要使用utf-8编码。如果需要设置编码格式，需要在.py文件头第一行添加<code># -*- coding: UTF-8 -*-</code>, 一般情况下都使用utf-8编码。</p>
-<p>字节值可能会使用下列三种不同的方式显示：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>偶然看到Edmund Optics一篇关于lens shading成因的介绍，原文<a target="_blank" rel="noopener" href="https://www.edmundoptics.com/knowledge-center/application-notes/imaging/sensor-relative-illumination-roll-off-and-vignetting/">Relative Illumination, Roll-Off, and Vignetting</a>，建议直接看原文，以下是个人总结。</p>
+<h2 id="Relative-Illumination-RI"><a href="#Relative-Illumination-RI" class="headerlink" title="Relative Illumination (RI)"></a>Relative Illumination (RI)</h2><p>RI是描述暗角效应的一种方式，表示边角亮度与中心点比值，一般sensor中心点的illumibation最高，RI为100%，越往边角亮度越暗，RI越小。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/1.png" alt="RI curves"><br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/2.png" alt="Shading"></p>
+<p>从图中可以看出：</p>
 <ul>
-<li>可打印的ASCII范围内的字节，使用ASCII字符本身</li>
-<li>制表符、换行符、回车符和\对应的字节，使用转义序列\t \n \r等等</li>
-<li>其他字节值，使用十六进制转义序列</li>
+<li>光圈越大，RI的衰减越多。RI是相对值，光圈大时绝对进光量是越大的。</li>
+<li>sensor尺寸越大，暗角效应约明显。</li>
 </ul>
-<p>说了这么多，举个例子吧，当我们用utf-8编码在编辑器中编辑好.py文件，python解释器会用utf-8解释运行。<code>s</code>字符串包含了英文字母和汉字，python使用unicode码获取字符串中字符，用<code>encode()</code>编码成字节序列<code>b</code>，使用print输出，abcd由于是ascii码范围内字符，还是显示为abcd，而汉字则显示为16进制的字符序列，<code>\x</code>表示十六进制的字符型变量。<code>c</code>使用正确解码方式解码后，依旧可以获得正确的字符串，而<code>d</code>使用错误解码方式，则会报错。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: UTF-8 -*-</span>
-
-s <span class="token operator">=</span> <span class="token string">'abcd一二三四'</span>
-b <span class="token operator">=</span> s<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-c <span class="token operator">=</span> b<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-d <span class="token operator">=</span> b<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'gb2312'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 输出</span>
-b<span class="token string">'abcd\xe4\xb8\x80\xe4\xba\x8c\xe4\xb8\x89\xe5\x9b\x9b'</span>
-abcd一二三四
-
-UnicodeDecodeError<span class="token punctuation">:</span> <span class="token string">'gb2312'</span> codec can't decode byte <span class="token number">0x80</span> <span class="token keyword">in</span> position <span class="token number">6</span><span class="token punctuation">:</span> illegal multibyte sequence
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>RI是vignetting和roll-off综合产生的结果，而两者的成因不同，以下分别介绍。</p>
+<h2 id="Vignetting"><a href="#Vignetting" class="headerlink" title="Vignetting"></a>Vignetting</h2><p>光线不能穿过整个透镜组，在镜片边缘被截断，导致sensor边角接受到的光线较中心偏少，光圈越大，该效应约明显。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/3.png" alt="light rays are clipped"></p>
+<h2 id="Roll-off"><a href="#Roll-off" class="headerlink" title="Roll-off"></a>Roll-off</h2><p>Roll-off产生原因为电磁辐射准则（cosine-to-the-fourth law），此处可以参考<a target="_blank" rel="noopener" href="https://www.coursera.org/lecture/optical-efficiency-and-resolution/cos-4th-law-GG6kh">cos4 law</a>，也就是说主光线角度越大，sensor上pixel位置接受的能量越少。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/4.png" alt="chief ray angle"><br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/5.png" alt="RI decays with chief raw angel increases"></p>
+<p>现在的sensor上都有微透镜使之接收更多光线，但入射角发生变化，也会引起Roll-off现象，如下图，入射角倾斜，光线经过微透镜无法全部落在sensor的感光区域。<br><img src="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/6.png"></p>
 
                 
             </div>
@@ -489,7 +472,7 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/07/24/python_str_encode/">http://example.com/2021/07/24/python_str_encode/</a>
+                    <a href="http://example.com/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/">http://example.com/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -527,8 +510,8 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/Lens/">
+                                    <span class="chip bg-color">Lens</span>
                                 </a>
                             
                         </div>
@@ -837,9 +820,10 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/">
                     <div class="card-image">
@@ -856,9 +840,9 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -871,6 +855,7 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -889,12 +874,12 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/27/python%E5%AD%97%E5%85%B8%E9%94%AE%E5%80%BC%E4%B8%8D%E5%AD%98%E5%9C%A8%E6%83%85%E5%86%B5/">
+                <a href="/2021/07/24/python_str_encode/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Python-字典键值不存在时的处理">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python中的字符与编码">
                         
-                        <span class="card-title">Python-字典键值不存在时的处理</span>
+                        <span class="card-title">Python中的字符与编码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -905,7 +890,7 @@ UnicodeDecodeError<span class="token punctuation">:</span> <span class="token st
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-24
                             </span>
                         <span class="publish-author">
                             

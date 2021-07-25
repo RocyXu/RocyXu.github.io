@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-10T08:26:28.173Z</updated>
+  <updated>2021-07-25T07:20:50.816Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lens shading成因</title>
+    <link href="http://example.com/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/"/>
+    <id>http://example.com/2021/07/25/lens-shading%E6%88%90%E5%9B%A0/</id>
+    <published>2021-07-25T13:43:00.000Z</published>
+    <updated>2021-07-25T07:20:50.816Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;偶然看到Edmund Optics一篇关于lens shading成因的介绍，原文&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="ISP" scheme="http://example.com/categories/ISP/"/>
+    
+    
+    <category term="Lens" scheme="http://example.com/tags/Lens/"/>
+    
+  </entry>
   
   <entry>
     <title>Python中的字符与编码</title>
